@@ -5,7 +5,7 @@
 #define PI 3.14
 double main()
 {
-    int choice;
+    int choice,choice2;
     double number1,number2,result,val;
 
      printf("\n\n \t\t\t!!!  Welcome to the CALCULATOR program.  !!!\n");
@@ -21,8 +21,7 @@ double main()
     // Enter the number associated with the desired function.
     printf("\nEnter your choice: ");
     scanf("%d",&choice);
-    if (choice<=17)
-    {
+
         //Use of switch statement to make various cases.
         switch(choice)
         {
@@ -53,11 +52,39 @@ double main()
 
             //Case for Division of two numbers.
         case 4:
-             printf("\nEnter the numbers:\n");
-            scanf("%lf %lf",&number1,&number2);
-            result=number1/number2;
-            printf("Division= %lf",result);
-            break;
+             printf("1. x/y\n2. y/x");
+             printf("\n1 or 2\n");
+             scanf("%d",&choice2);
+
+             switch(choice2)
+             {
+             case 1:
+                printf("Enter the numbers:\n");
+                scanf("%lf %lf",&number1,&number2);
+                if (number2==0)
+                {
+                    printf("\nDivisor cannot be zero. Enter valid number");
+                }
+                else
+                {
+                    result=number1/number2;
+                    printf("\nDivision= %lf",result);
+                }
+                break;
+             case 2:
+                printf("Enter the numbers:\n");
+                scanf("%lf %lf",&number1,&number2);
+                if (number1==0)
+                {
+                    printf("\nDivisor cannot be zero. Enter valid number");
+                }
+                else
+                {
+                    result=number2/number1;
+                    printf("\nDivision= %lf",result);
+                }
+             }
+             break;
 
             //Case for Percentage
         case 5:
@@ -102,7 +129,7 @@ double main()
 
             //Sine function(sin(x))
         case 10:
-            printf("\nEnter x: ");
+            printf("\nEnter the angle in degrees: ");
             scanf("%lf",&number1);
             val=PI/180;
             result=sin(number1*val);
@@ -111,7 +138,7 @@ double main()
 
             //Cosine function(cos(x))
         case 11:
-             printf("\nEnter x: ");
+             printf("\nEnter the angle in degrees: ");
             scanf("%lf",&number1);
             val=PI/180;
             result=cos(number1*val);
@@ -120,7 +147,7 @@ double main()
 
             //Tangent function(tan(x))
         case 12:
-             printf("\nEnter x: ");
+             printf("\nEnter the angle in degrees: ");
             scanf("%lf",&number1);
             val=PI/180;
             result=tan(number1*val);
@@ -200,13 +227,11 @@ double main()
                 printf("Base 10 logarithm of %0.2lf is %lf",number1,result);
             }
             break;
-        }
-    }
 
-    //If value of variable choice is more than 17 or less than 1 the output will show "Invalid valuePlease enter a number between 1 and 17."
-    else
-    {
-       printf("\nInvalid value!!!\nPlease enter a number between 1 and 17.");
-    }
+        default:
+            printf("\nInvalid value!!!\nPlease enter a number between 1 and 17.");
+
+        }
+
   }
 }
