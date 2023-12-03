@@ -2,7 +2,7 @@
 #include<stdio.h>
 #include<conio.h>
 #include<stdlib.h>
-#define PI (22/7)
+#define PI 3.14
 double main()
 {
     int choice;
